@@ -81,7 +81,7 @@ public class Orcamento {
     }
 
     public void calcularCustoFinal(int horasDiariasDesenvolvedor, float valorMensalDesejado) {
-        float valorHoraDesenvolvedor = valorMensalDesejado / horasDiariasDesenvolvedor;
+        float valorHoraDesenvolvedor = valorMensalDesejado / (horasDiariasDesenvolvedor * 22);
         float valorTotalDesenvolvedor = valorHoraDesenvolvedor * horasTotais;
         setCustoFinal((float) (valorTotalDesenvolvedor + (valorTotalDesenvolvedor * 0.3)) );
     }
