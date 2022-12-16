@@ -18,6 +18,18 @@ As pastas principais que temos são:
 As principais dependências que utilizamos podem ser encontradas no:
 -   `pom`: estão as dependências que utilizamos principalmente para o banco de dados.
 
+
+## Manual de Uso
+É necessário ter instalado:
+- Netbeans (ou uma IDE de sua preferência).
+- SQLiteStudio
+
+Como usar:
+- Baixe o repositório na sua máquina e rode
+` CalculadoraOrcamento.java`
+- Para ver a tabela de dados abra o arquivo de banco que foi gerado.
+`database.db` 
+
 ##  Colaboradores
 
 Agradecemos às seguintes pessoas que contribuíram para este projeto:
@@ -30,6 +42,16 @@ Agradecemos às seguintes pessoas que contribuíram para este projeto:
         <sub>
           <b>Tyler Lucas Ferreira de Oliveira</b><br>
                     <b>125111344890</b>
+        </sub>
+      </a>
+    </td>
+    <table>
+  <tr>
+    <td align="center">
+      <a href="#">
+        <img src="https://http2.mlstatic.com/D_NQ_NP_776608-MLB26589029684_012018-O.jpg" width="100px;" alt="Imagem de gato"/><br>
+        <sub>
+          <b>Jesus Cristo</b>
         </sub>
       </a>
     </td>
