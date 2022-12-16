@@ -93,4 +93,14 @@ public class DatabaseConnector {
             return null;
         }
     }
+
+    public void exibirResultado(PreparedStatement consulta) {
+        try {
+            consulta.execute();
+            String result = consulta.getResultSet().toString();
+            System.out.println(result);
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
+        }
+    }
 }

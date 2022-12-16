@@ -194,7 +194,8 @@ public class CalculadoraOrcamento {
                 orcamento.getDesenvolvedor(),
                 orcamento.getHorasTotais(),
                 orcamento.getCustoFinal());
-
+                
+        orcamento.listarOrcamentos();
     }
 
 }

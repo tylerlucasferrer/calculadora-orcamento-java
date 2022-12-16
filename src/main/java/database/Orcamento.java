@@ -80,7 +80,7 @@ public class Orcamento {
         this.custoFinal = custoFinal;
     }
 
-    public void calcularCustoFinal(int horasTrabalhadasMes) {
+    public void calcularCustoFinal(float horasTrabalhadasMes) {
         float valorTotalDesenvolvedor = horasTrabalhadasMes * horasTotais;
         setCustoFinal((float) (valorTotalDesenvolvedor + (valorTotalDesenvolvedor * 0.3)) );
     }
@@ -109,6 +109,38 @@ public class Orcamento {
             if (response == 1) {
                 System.out.println("Orçamento registrado!");
             }
+        } catch (Exception e) {
+            System.out.println(e);
+        } finally {
+            if (consulta != null) {
+                try {
+                    consulta.close();
+                } catch (SQLException ex){
+                    System.err.println(ex.getMessage());
+                }
+            }
+            if (conectou) {
+                database.desconectar();
+            }
+        }
+    }
+
+    public void listarOrcamentos() throws SQLException {
+        boolean conectou = false;
+
+        final String[] sql = database.readFile("ConsultarOrcamentos.sql");
+        String textoSql = "";
+        conectou = database.conectar();
+
+        for (String sql1 : sql) {
+            textoSql = textoSql + "\n" + sql1;
+        }
+
+        PreparedStatement consulta = database.prepararConsulta(textoSql);
+
+        try {
+            consulta.execute();
+            database.exibirResultado(consulta);
         } catch (Exception e) {
             System.out.println(e);
         } finally {
