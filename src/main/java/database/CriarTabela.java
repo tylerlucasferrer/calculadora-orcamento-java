@@ -28,7 +28,6 @@ public class CriarTabela {
                 consulta.execute(sql1);  
             }
             
-            System.out.println("Tabela criada!");
         } catch (SQLException e) {
             System.out.println(e);
         } finally {

@@ -32,7 +32,8 @@ public class CalculadoraOrcamento {
 
         Scanner sc = new Scanner(System.in);
 
-        System.out.println("Por favor, insira os dados do orçamento:");
+        System.out.println("\nPor favor, insira os dados do orçamento:");
+        System.out.println("-----------------------------------------------------------"); 
         System.out.println("Nome do desenvolvedor:");
         desenvolvedor.setNome(sc.nextLine());
         System.out.println("Disponibilidade diaria do desenvolvedor em horas:");
@@ -40,7 +41,7 @@ public class CalculadoraOrcamento {
         System.out.println("Valor mensal desejado pelo desenvolvedor:");
         desenvolvedor.setValorMensalDesejado(sc.nextFloat());
 
-        System.out.println("Escolha os itens de sistema que deseja incluir no orçamento:");
+        System.out.println("\n\nEscolha os itens de sistema que deseja incluir no orçamento:\n");
         
         System.out.println("------------------------------------------------------------------------------------------------------");
         System.out.println("| Opcao | Tipo de Item de sistema                                 | Dificuldade | Quantidade de horas |");
@@ -125,9 +126,9 @@ public class CalculadoraOrcamento {
         do{
             if(quantEscolhas == 0) {
                 quantEscolhas = 1;
-                System.out.print("Item: ");
+                System.out.print("\nItem: ");
             } else if (quantEscolhas > 0) {
-                System.out.print("Escolha outro item: ");
+                System.out.print("\nEscolha outro item: ");
             }
             opcao = MenuData();
             switch(opcao){
@@ -181,7 +182,7 @@ public class CalculadoraOrcamento {
                     break;
             }
             
-            System.out.println("Deseja continuar? (s/n)");
+            System.out.println("\nDeseja continuar? (s/n)");
             String opcaoContinuar = sc.next();
             if(opcaoContinuar.equals("n")){
                 continuar = false;

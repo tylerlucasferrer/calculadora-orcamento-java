@@ -5,7 +5,9 @@
 package database;
 
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 public class Orcamento {
 
@@ -128,22 +130,43 @@ public class Orcamento {
     public void listarOrcamentos() throws SQLException {
         boolean conectou = false;
 
+        ResultSet resultado = null;
+        Statement consulta = null;
+
         final String[] sql = database.readFile("ConsultarOrcamentos.sql");
         String textoSql = "";
-        conectou = database.conectar();
 
         for (String sql1 : sql) {
             textoSql = textoSql + "\n" + sql1;
         }
 
-        PreparedStatement consulta = database.prepararConsulta(textoSql);
+        conectou = database.conectar();
+
+        consulta = database.criarConsulta();
 
         try {
-            consulta.execute();
-            database.exibirResultado(consulta);
+            resultado = consulta.executeQuery(textoSql);
+
+            System.out.println("\nOrçamentos registrados:");
+            System.out.println("-----------------------------------------------------------\n"); 
+
+            while (resultado.next()) {
+                System.out.println("Itens de sistema: \n" + resultado.getString("itensDeSistema"));
+                System.out.println("Desenvolvedor: " + resultado.getString("desenvolvedor"));
+                System.out.println("Horas totais: " + resultado.getInt("horasTotais"));
+                System.out.println("Custo final: " + resultado.getFloat("custoFinal"));
+                System.out.println("\n-----------------------------------------------------------\n"); 
+            }
         } catch (Exception e) {
-            System.out.println(e);
+            System.out.println(e.getMessage());
         } finally {
+            if (resultado != null) {
+                try {
+                    resultado.close();
+                } catch (SQLException ex){
+                    System.err.println(ex.getMessage());
+                }
+            }
             if (consulta != null) {
                 try {
                     consulta.close();
@@ -156,5 +179,4 @@ public class Orcamento {
             }
         }
     }
-
 }

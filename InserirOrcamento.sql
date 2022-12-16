@@ -1,1 +1,1 @@
-INSERT INTO orcamentos (itensdesistema, desenvolvedor, horastotais, custofinal) VALUES (?, ?, ?, ?)
+INSERT INTO orcamentos (itensdesistema, desenvolvedor, horastotais, custofinal) VALUES (?, ?, ?, ?);

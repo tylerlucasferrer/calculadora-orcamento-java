@@ -27,7 +27,6 @@ public class DatabaseConnector {
             return false;
         }
 
-        System.out.println("Conectado!");
         return true;
     }
 
@@ -42,7 +41,6 @@ public class DatabaseConnector {
             System.err.println(e.getMessage());
             return false;
         }
-        System.out.println("Desconectado!");
         return true;
     }
 
