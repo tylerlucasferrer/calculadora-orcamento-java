@@ -13,7 +13,6 @@ public class CalculadoraOrcamento {
 
     public static int MenuData() {
         int selection;
-        System.out.print("Item: ");
         Scanner sc = new Scanner(System.in);
         selection = sc.nextInt();
         return selection;
@@ -120,9 +119,16 @@ public class CalculadoraOrcamento {
         String itensDeSistema = "";
         int horasTotais = 0;
 
+        int quantEscolhas = 0;
         int opcao = 0;
         boolean continuar = true;
         do{
+            if(quantEscolhas == 0) {
+                quantEscolhas = 1;
+                System.out.print("Item: ");
+            } else if (quantEscolhas > 0) {
+                System.out.print("Escolha outro item: ");
+            }
             opcao = MenuData();
             switch(opcao){
                 case 1:
@@ -174,6 +180,7 @@ public class CalculadoraOrcamento {
                     horasTotais += item12.getTempoEmpregado();
                     break;
             }
+            
             System.out.println("Deseja continuar? (s/n)");
             String opcaoContinuar = sc.next();
             if(opcaoContinuar.equals("n")){
