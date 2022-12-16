@@ -186,7 +186,7 @@ public class CalculadoraOrcamento {
         orcamento.setItensDeSistema(itensDeSistema);
         orcamento.setDesenvolvedor(desenvolvedor.getNome());
         orcamento.setHorasTotais(horasTotais);
-        orcamento.calcularCustoFinal(desenvolvedor.getHorasDisponiveisDia(), desenvolvedor.getValorMensalDesejado());
+        orcamento.calcularCustoFinal(desenvolvedor.horasTrabalhadasMes());
         
 
         orcamento.inserirOrcamento(
