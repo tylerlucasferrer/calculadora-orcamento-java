@@ -34,7 +34,7 @@ public class CalculadoraOrcamento {
 
         System.out.println("Por favor, insira os dados do orçamento:");
         System.out.println("Nome do desenvolvedor:");
-        desenvolvedor.setNome(sc.next());
+        desenvolvedor.setNome(sc.nextLine());
         System.out.println("Disponibilidade diaria do desenvolvedor em horas:");
         desenvolvedor.setHorasDisponiveisDia(sc.nextInt());
         System.out.println("Valor mensal desejado pelo desenvolvedor:");
