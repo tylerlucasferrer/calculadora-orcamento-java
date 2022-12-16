@@ -19,23 +19,23 @@ public class Orcamento {
         this.database = conector;
     }
 
-    private String titulo;
+    private String itensDeSistema;
     private String desenvolvedor;
     private int horasTotais;
     private float custoFinal;
 
     /**
-     * @return the titulo
+     * @return the itensDeSistema
      */
-    public String getTitulo() {
-        return titulo;
+    public String getItensDeSistema() {
+        return itensDeSistema;
     }
 
     /**
-     * @param titulo the titulo to set
+     * @param itensDeSistema the itensDeSistema to set
      */
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
+    public void setItensDeSistema(String itensDeSistema) {
+        this.itensDeSistema = itensDeSistema;
     }
 
     /**
@@ -80,7 +80,13 @@ public class Orcamento {
         this.custoFinal = custoFinal;
     }
 
-    public void inserirOrcamento(String titulo, String desenvolvedor, int horasTotais, float custoFinal) throws SQLException {
+    public void calcularCustoFinal(int horasDiariasDesenvolvedor, float valorMensalDesejado) {
+        float valorHoraDesenvolvedor = valorMensalDesejado / horasDiariasDesenvolvedor;
+        float valorTotalDesenvolvedor = valorHoraDesenvolvedor * horasTotais;
+        setCustoFinal((float) (valorTotalDesenvolvedor + (valorTotalDesenvolvedor * 0.3)) );
+    }
+
+    public void inserirOrcamento(String itensDeSistema, String desenvolvedor, int horasTotais, float custoFinal) throws SQLException {
         boolean conectou = false;
 
         final String[] sql = database.readFile("InserirOrcamento.sql");
@@ -94,7 +100,7 @@ public class Orcamento {
         PreparedStatement consulta = database.prepararConsulta(textoSql);
 
         try {
-            consulta.setString(1, titulo);
+            consulta.setString(1, itensDeSistema);
             consulta.setString(2, desenvolvedor);
             consulta.setInt(3, horasTotais);
             consulta.setFloat(4, custoFinal);

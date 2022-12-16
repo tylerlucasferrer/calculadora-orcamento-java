@@ -13,6 +13,12 @@ public class ItemDeSistema {
     private int dificuldade;
     private int tempoEmpregado;
 
+    public ItemDeSistema(int i, String t, int j, int k) {
+        tipo = t;
+        dificuldade = j;
+        tempoEmpregado = k;
+    }
+
     /**
      * @return the tipo
      */
